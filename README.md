@@ -22,3 +22,7 @@ This project is a Datepicker UI built using HTML and CSS. It provides a clean an
   <li>Implement a calendar pop-up feature</li>
   <li>Enhance accessibility with ARIA attributes</li>
 </ul>
+<br>
+<footer>
+    <p>&copy; 2025 Ken Ekweme | <a href="https://www.oteksolutions.net" target="_blank">OTek Solutions</a></p>
+</footer>
