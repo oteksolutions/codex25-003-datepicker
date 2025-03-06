@@ -1,99 +1,293 @@
-/* Global Styles */
+/* Base Styles */
+:root {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --text-color: #1f2937;
+  --background-color: #ffffff;
+  --border-color: #d1d5db;
+  --light-gray: #f3f4f6;
+  --gray-text: #6b7280;
+  --selection-bg: #dbeafe;
+  --today-bg: #eff6ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: #f9fafb;
+  padding: 20px;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--light-gray);
+}
+
+/* Datepicker Styles */
 .datepicker {
   position: relative;
-  width: 250px;
-  margin: 20px auto;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 20px;
 }
 
-.date-input {
+.date-input-wrapper {
+  position: relative;
+}
+
+.date-input-wrapper label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.date-input-wrapper input[type="text"] {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 40px 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
 }
 
-.calendar {
-  display: none;
+.calendar-icon {
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
-  z-index: 1000;
+  right: 10px;
+  bottom: 9px;
+  color: var(--gray-text);
+  cursor: pointer;
 }
 
+.calendar-toggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Calendar Panel */
+.calendar-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  z-index: 100;
+  padding: 12px;
+}
+
+/* Show calendar when toggle is checked */
+.calendar-toggle:checked + .calendar-panel,
+.calendar-toggle:checked ~ .calendar-panel {
+  display: block;
+}
+
+/* Calendar Header */
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background: #007BFF;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 5px 5px 0 0;
+  margin-bottom: 12px;
 }
 
-.prev-month,
-.next-month {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
+.current-month {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-.day-names {
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.month-nav span {
+  font-size: 0.8rem;
+}
+
+/* Calendar Grid */
+.calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  font-weight: bold;
-  margin: 10px 0;
-  color: #666;
+  gap: 2px;
 }
 
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+.weekday {
   text-align: center;
-  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-text);
+  padding: 8px 0;
 }
 
-.days span {
-  padding: 10px;
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.2s ease;
+  font-size: 0.9rem;
 }
 
-.days span:hover {
-  background: #007BFF;
-  color: #fff;
+.day:hover {
+  background-color: var(--light-gray);
 }
 
+.day.current {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.day.prev-month,
+.day.next-month {
+  color: var(--gray-text);
+  opacity: 0.7;
+}
+
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.today-btn,
+.clear-btn {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.today-btn:hover,
+.clear-btn:hover {
+  background-color: var(--selection-bg);
+}
+
+/* Form Example Styles */
+.form-example {
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.datepicker-form-group .datepicker {
+  margin-bottom: 0;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Accessibility and Focus */
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .calendar-panel {
+      width: 100%;
+      left: 0;
+  }
+  
+  .container {
+      padding: 15px;
+  }
+}
+
+/* Footer Styles */
 .footer {
-  text-align: center;
-  background-color: #007BFF;
-  color: #fff;
-  padding: 10px 0;
-  margin-top: 20px;
-  font-size: 14px;
-  border-radius: 5px 5px 0 0;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  border-top: 1px solid #eeeeee;
+  margin-top: auto;
 }
 
-.footer p {
-  margin: 0;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.footer-section {
+  margin: 10px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
 }
