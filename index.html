@@ -3,41 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonial Carousel</title>
+    <title>Datepicker UI</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="datepicker">
-        <input type="text" placeholder="Select a date" class="date-input" readonly>
-        <div class="calendar">
-          <div class="calendar-header">
-            <button class="prev-month">&#8249;</button>
-            <span class="month-year">March 2025</span>
-            <button class="next-month">&#8250;</button>
-          </div>
-          <div class="calendar-body">
-            <div class="day-names">
-              <span>Sun</span>
-              <span>Mon</span>
-              <span>Tue</span>
-              <span>Wed</span>
-              <span>Thu</span>
-              <span>Fri</span>
-              <span>Sat</span>
-            </div>
-            <div class="days">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-              <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-              <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
-              <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-              <span>29</span><span>30</span><span>31</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    <footer class="footer">
-        <p>&copy; 2025 Ken Ekweme | <a href="https://www.oteksolutions.net" target="_blank">OTek Solutions</a></p>
-    </footer>
+  <div class="container">
+    <h1>Select a Date</h1>
     
+    <div class="datepicker">
+        <!-- Date Input with Toggle -->
+        <div class="date-input-wrapper">
+            <label for="date-input">Date</label>
+            <input type="text" id="date-input" placeholder="Select a date" readonly>
+            <label for="calendar-toggle" class="calendar-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm-2 2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5 6H4v8h16v-8z" fill="currentColor"/>
+                </svg>
+            </label>
+            <input type="checkbox" id="calendar-toggle" class="calendar-toggle">
+        </div>
+        
+        <!-- Calendar Panel -->
+        <div class="calendar-panel">
+            <!-- Calendar Header -->
+            <div class="calendar-header">
+                <button class="month-nav prev" aria-label="Previous month">
+                    <span>&#10094;</span>
+                </button>
+                <h2 class="current-month">March 2025</h2>
+                <button class="month-nav next" aria-label="Next month">
+                    <span>&#10095;</span>
+                </button>
+            </div>
+            
+            <!-- Calendar Grid -->
+            <div class="calendar-grid">
+                <!-- Weekday Headers -->
+                <div class="weekday">Su</div>
+                <div class="weekday">Mo</div>
+                <div class="weekday">Tu</div>
+                <div class="weekday">We</div>
+                <div class="weekday">Th</div>
+                <div class="weekday">Fr</div>
+                <div class="weekday">Sa</div>
+                
+                <!-- Calendar Days (First Row - Previous Month) -->
+                <div class="day prev-month">23</div>
+                <div class="day prev-month">24</div>
+                <div class="day prev-month">25</div>
+                <div class="day prev-month">26</div>
+                <div class="day prev-month">27</div>
+                <div class="day prev-month">28</div>
+                <div class="day">1</div>
+                
+                <!-- Current Month -->
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day current">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                
+                <div class="day">9</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                
+                <div class="day">30</div>
+                <div class="day">31</div>
+                <div class="day next-month">1</div>
+                <div class="day next-month">2</div>
+                <div class="day next-month">3</div>
+                <div class="day next-month">4</div>
+                <div class="day next-month">5</div>
+            </div>
+            
+            <!-- Bottom Controls -->
+            <div class="calendar-footer">
+                <button class="today-btn">Today</button>
+                <button class="clear-btn">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-example">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+            
+            <div class="form-group datepicker-form-group">
+                <label for="birthday">Birthday:</label>
+                <div class="datepicker">
+                    <div class="date-input-wrapper">
+                        <input type="text" id="birthday" placeholder="Select a date" readonly>
+                        <label for="birthday-toggle" class="calendar-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"/>
+                                <path d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm-2 2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5 6H4v8h16v-8z" fill="currentColor"/>
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="birthday-toggle" class="calendar-toggle">
+                    </div>
+                    
+                    <div class="calendar-panel">
+                        <!-- Calendar content similar to above -->
+                        <!-- Simplified for brevity -->
+                        <div class="calendar-header">
+                            <button class="month-nav prev" aria-label="Previous month">
+                                <span>&#10094;</span>
+                            </button>
+                            <h2 class="current-month">March 2025</h2>
+                            <button class="month-nav next" aria-label="Next month">
+                                <span>&#10095;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="calendar-grid">
+                            <!-- Weekday headers -->
+                            <div class="weekday">Su</div>
+                            <div class="weekday">Mo</div>
+                            <div class="weekday">Tu</div>
+                            <div class="weekday">We</div>
+                            <div class="weekday">Th</div>
+                            <div class="weekday">Fr</div>
+                            <div class="weekday">Sa</div>
+                            
+                            <!-- Example days - would be full calendar in actual implementation -->
+                            <div class="day prev-month">28</div>
+                            <!-- Additional days would go here -->
+                            <div class="day current">5</div>
+                            <!-- More days would go here -->
+                            <div class="day next-month">1</div>
+                        </div>
+                        
+                        <div class="calendar-footer">
+                            <button class="today-btn">Today</button>
+                            <button class="clear-btn">Clear</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-section">
+            <p>&copy; 2025 Ken Ekweme | <a href="https://www.oteksolutions.net" target="_blank">OTek Solutions</a></p>
+          </div>
+      </div>
+    </footer>
 </body>
 </html>
