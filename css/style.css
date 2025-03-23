@@ -262,26 +262,33 @@ input:focus {
   }
 }
 
-/* Footer Styles */
-.footer {
-  background-color: #f8f8f8;
-  padding: 20px 0;
-  border-top: 1px solid #eeeeee;
+/* Developer Footer */
+.developer-footer * {
+  margin: 0;
+  padding: 0;
+}
+
+.developer-footer {
+  background: #2c3e50;
+  color: #bdc3c7;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
   margin-top: auto;
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0 20px;
+.developer-footer a, p {
+  color: #bdc3c7;
+  text-decoration: none;
 }
 
-.footer-section {
-  margin: 10px 0;
+.developer-footer a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.developer-footer a:active {
+  color: #FF4D00;
 }
 
 /* Responsive adjustments */
