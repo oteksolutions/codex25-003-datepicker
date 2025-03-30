@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 300px;
   margin: 0 auto;
 	margin-top: 20px;
   padding: 20px;
@@ -83,7 +83,7 @@ button:hover {
 .calendar-icon {
   position: absolute;
   right: 10px;
-  bottom: 9px;
+  bottom: 0px;
   color: var(--gray-text);
   cursor: pointer;
 }
@@ -250,18 +250,6 @@ input:focus {
   outline-offset: 2px;
 }
 
-/* Responsive Styles */
-@media (max-width: 480px) {
-  .calendar-panel {
-      width: 100%;
-      left: 0;
-  }
-  
-  .container {
-      padding: 15px;
-  }
-}
-
 /* Developer Footer */
 .developer-footer * {
   margin: 0;
@@ -297,6 +285,18 @@ input:focus {
 
 a[href*="humans"]{
 	cursor: help;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .calendar-panel {
+      width: 100%;
+      left: 0;
+  }
+  
+  .container {
+      padding: 15px;
+  }
 }
 
 /* Responsive adjustments */
