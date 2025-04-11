@@ -1,7 +1,7 @@
 # codex25-003-datepicker
 
 <p><strong>PROJECT OVERVIEW</strong></p>
-This project is a Datepicker UI built using HTML and CSS. It provides  clean and visually appealing interface for selecting dates without using JavaScript. The design ensures accessibility, responsiveness, and a smooth user experience.
+This project is a Datepicker UI built using HTML and CSS. It provides a clean and visually appealing interface for selecting dates without using JavaScript. The design ensures accessibility, responsiveness, and a smooth user experience.
 <br><br>
 <p><strong>Learning Objective:</strong> The objective of this project is to strengthen my HTML and CSS skills by focusing on UI layout, form styling, and responsive design. It helps me practice structuring interactive components while maintaining accessibility and clean code organization.</p>
 <br>
